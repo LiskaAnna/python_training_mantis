@@ -25,7 +25,7 @@ def app(request, config):
     global fixture
     browser = request.config.getoption("--browser")
     if fixture is None or not fixture.is_valid():
-        fixture = Application(browser=browser, base_url=config['web']['baseUrl'])
+        fixture = Application(browser=browser, config=config)
     return fixture
 
 
@@ -100,4 +100,4 @@ def restore_server_configuration(host, username, password):
         if remote.path.isfile("config_inc.php.bak"):
             if remote.path.isfile("config_inc.php"):
                 remote.remove("config_inc.php")
-            remote.rename("config_inc.php.back", "config_inc.php")
+            remote.rename("config_inc.php.bak", "config_inc.php")
