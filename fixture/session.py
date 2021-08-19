@@ -41,3 +41,7 @@ class SessionHelper:
             else:
                 self.logout()
         self.login(username, password)
+
+    def login_if_needed(self):
+        if not self.is_logged_in():
+            self.login(self.app.login, self.app.password)

@@ -28,6 +28,8 @@ class Application:
         self.soap = SoapHelper(self)
         self.config = config
         self.base_url = config['web']['baseUrl']
+        self.login = config['webadmin']['username']
+        self.password = config['webadmin']['password']
 
     def open_home_page(self):
         wd = self.wd
